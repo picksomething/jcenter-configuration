@@ -19,9 +19,15 @@ apply from:'https://raw.githubusercontent.com/picksomething/jcenter-configuratio
 ```
 ext {
     bintrayRepo = 'picksomething' //bintray上的仓库名，随便填，并不一定为maven，只要和你在bintray上创建的仓库的名字一致就好。
-    bintrayName = 'slidingtabindicator' //bintray上的项目名，也是随便填，很多人教程都说要和你在仓库里面新建的package名字一样，实时情况是如果你在仓库里自己没有新建package，你上传的时候也会自动按照这个名字在你仓库里新建对应的package，所以没有必要现在仓库里面新建，如果你已经新建了，那就保持一致即可。
+    bintrayName = 'slidingtabindicator' //bintray上的项目名，也是随便填，
+    //很多人教程都说要和你在仓库里面新建的package名字一样，
+    //实时情况是如果你在仓库里自己没有新建package，你上传的时候也会自动
+    //按照这个名字在你仓库里新建对应的package，所以没有必要现在仓库里面新建，
+    //如果你已经新建了，那就保持一致即可。
 
-    publishedGroupId = 'cn.picksomething' //最终别人要依赖你的项目的时候，形式就是publishedGroupId:artifact:libraryVersion，所以该怎么填你很清楚了吧，最好是唯一。
+    publishedGroupId = 'cn.picksomething' //别人要依赖你的项目的时候，形式就是publishedGroupId:artifact:libraryVersion，
+    //所以该怎么填你很清楚了吧，最好比较有辨识度
+    
     libraryName = 'slidingtabindicator'//这个最好和artifact一样
     artifact = 'slidingtabindicator'//这个必须要和library module的名字一样，我之前不一样，上传的时候一直出错。
 
@@ -41,7 +47,14 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 ```
-> 需要注意的是默认`bintray.user`和`bintray.key`这两个字段是从项目最外层的`local.properties`里面读取的，所以记得在`local.properties`里面配置，这个文件不用上传，在`.gitignore`里面忽略一下即可，当然如果你在github上面新建代码仓库的时候选择添加`.gitignore`且项目类型选择Android，那么这个`local.properties`文件默认就会自动忽略的。
+- 在`local.properties`里加上：  
+
+```
+bintray.user=****
+bintray.apikey=********************
+```
+
+> apikey是你注册bintray之后在个人中心里面可以看到，因为属于敏感信息，所以`local.properties`这个文件不要上传。在`.gitignore`里面忽略一下改文件即可，如果你在github上面新建代码仓库的时候选择添加`.gitignore`且项目类型选择Android，那么这个`local.properties`文件默认就会自动忽略的。
 
 License
 =======
